@@ -21,5 +21,8 @@ export default makeStyles ( () => ({
         hover: {
             cursor: 'pointer',
         }
+    },
+    genre: {
+        fontSize: 12,
     }
 }) )

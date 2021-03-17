@@ -12,7 +12,6 @@ export const PopularContainer = () => {
     const searchResult = useSelector(state => state.search.result)
     const [page, setPage] = useState(1)
     const [search, setSearch] = useState("")
-    const [resultToDiplay, setResultToDisplay] = useState(searchResult)
     useEffect (() => {
         dispatch (getPopularFilms(page))
         dispatch (getGenres())
@@ -27,12 +26,15 @@ export const PopularContainer = () => {
     const onSearch = (event) => {
         if (event.key === "Enter") {
             dispatch (getResult(search))
+            setSearch("")
         }
     }
 
     
     return (
         <Popular popularFilms={popularFilms} genres={genres} page={page} hadleChange={hadleChange} 
-        search={search} onSearchChange={onSearchChange} onSearch={onSearch} searchResult={Object.keys(searchResult).length ? searchResult : popularFilms} />
+        search={search} onSearchChange={onSearchChange} onSearch={onSearch} searchResult={searchResult} />
     )
 }
+
+//searchResult={Object.keys(searchResult).length ? searchResult : popularFilms}

@@ -9,6 +9,9 @@ export const Header = () => {
                     <NavLink to="/" >
                         Movie DB
                     </NavLink>
+                    <NavLink to="/favorite" >
+                        Favorite
+                    </NavLink>
                 </Typography>
             </Toolbar>
         </AppBar>

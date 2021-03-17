@@ -1,5 +1,6 @@
 import { Card, CardContent, CardMedia, Typography } from "@material-ui/core"
 import AddCircleIcon from '@material-ui/icons/AddCircle';
+import { NavLink } from "react-router-dom";
 import useStyles from "./FilmCardStyle"
 
 export const FilmCard = ({film, genres}) => {
@@ -16,7 +17,9 @@ export const FilmCard = ({film, genres}) => {
 
     return (
         <Card className={style.card} >
-            <CardMedia className={style.poster} alt="Poster" image={`https://image.tmdb.org/t/p/w300${film.poster_path}`} />
+            <NavLink to= {`/filmpage/${film.id}`} >
+                <CardMedia className={style.poster} alt="Poster" image={`https://image.tmdb.org/t/p/w300${film.poster_path}`} />
+            </NavLink>
             <CardContent>
                 <div className={style.subRow} >
                     <Typography className={style.title} >
@@ -24,8 +27,8 @@ export const FilmCard = ({film, genres}) => {
                     </Typography>
                     <AddCircleIcon className={style.addIcon} />
                 </div>
-                <Typography className={style.title} >
-                    Genres: {filmGenres.map ((genre, index) => <span key={index} >{genre}</span>)}
+                <Typography className={style.genre} >
+                    Genres: {filmGenres.map ((genre, index) => genre).join(",")}
                 </Typography>
             </CardContent>
         </Card>

@@ -4,6 +4,7 @@ import { Search } from "../Search/Search";
 import useStyles from "./PopularStyle";
 
 export const Popular = (props) => {
+
   const style = useStyles();
   return (
     <>
@@ -12,7 +13,7 @@ export const Popular = (props) => {
         onSearchChange={props.onSearchChange}
         onSearch={props.onSearch}
       />
-      {props.searchResult.results ? (
+      {/* {props.searchResult.results ? (
         <div>
           <div className={style.row}>
             {props.searchResult.results.map((film) => {
@@ -26,7 +27,7 @@ export const Popular = (props) => {
           {props.searchResult.results.length > 0 &&
             <div className={style.paginator}>
             <Paginator
-              count={props.popularFilms.total_pages}
+              count={props.totalPages}
               page={props.page}
               hadleChange={props.hadleChange}
             />
@@ -35,8 +36,8 @@ export const Popular = (props) => {
         </div>
       ) : (
         <div>NOTHING</div>
-      )}
-      {/* {props.searchResult.length === 0 ? (
+      )} */}
+      {props.searchResult.length === 0 ? (
         <div>
           {props.popularFilms.results && (
             <div>
@@ -65,7 +66,7 @@ export const Popular = (props) => {
         </div>
       ) : (
         <div className={style.row} >
-          {props.searchResult.map((film) => {
+          {props.searchResult.results.map((film) => {
             return (
               <div>
                 <FilmCard key={film.id} film={film} genres={props.genres} />
@@ -73,7 +74,7 @@ export const Popular = (props) => {
             );
           })}
         </div>
-      )} */}
+      )} 
     </>
   );
 };
