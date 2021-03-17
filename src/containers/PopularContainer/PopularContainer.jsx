@@ -1,9 +1,9 @@
+import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { Popular } from "../../components/Popular/Popular"
 import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
 import { getPopularFilms, getGenres } from '../../redux/actions/popular-action'
 import { getResult } from "../../redux/actions/search-action"
-import { useState } from "react"
 
 export const PopularContainer = () => {
     const dispatch = useDispatch()

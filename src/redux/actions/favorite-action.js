@@ -1,3 +1,4 @@
-import { SET_FAVORITE } from "../../constants"
+import { ADD_FAVORITE,REMOVE_FAVORITE } from "../../constants"
 
-export const setFavorite = (favorite) => ({type: SET_FAVORITE, favorite})
+export const addFavorite = (item) => ({type: ADD_FAVORITE, item})
+export const removeFavorite = (id) => ({type: REMOVE_FAVORITE, id})

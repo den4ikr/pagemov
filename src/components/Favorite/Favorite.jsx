@@ -1,6 +1,7 @@
 import { FilmCard } from "../FilmCard/FilmCard"
 
 export const Favorite = ({favorite, genres}) => {
+    debugger
     return (
         <div>
             {favorite.length > 0 &&

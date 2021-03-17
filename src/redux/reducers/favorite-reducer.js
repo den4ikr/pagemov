@@ -1,4 +1,4 @@
-import { SET_FAVORITE } from "../../constants"
+import { ADD_FAVORITE, REMOVE_FAVORITE } from "../../constants"
 
 const initialState = {
     favorite: [
@@ -22,8 +22,16 @@ const initialState = {
 
 export const FavoriteReducer = (state = initialState, action) => {
     switch(action.type) {
-        case SET_FAVORITE:
-            return {...state, favorite: action.favorite}
+        case ADD_FAVORITE:
+            return {
+                ...state,
+                favorite: [...state.favorite, action.item]
+            }
+        case REMOVE_FAVORITE:
+            return {
+                ...state,
+                favorite: [...state.favorite.filter((film) => film.id !== action.id)],
+            }
         default:
             return state
     }
