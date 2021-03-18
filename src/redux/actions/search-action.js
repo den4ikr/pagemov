@@ -1,4 +1,4 @@
-import { API } from "../../components/Api/api";
+import { API } from "../../Api/api";
 import { SET_RESULT } from "../../constants";
 
 const setResult = (result) => ({type: SET_RESULT, result})

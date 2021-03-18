@@ -5,9 +5,6 @@ import { SearchReducer } from "./reducers/search-reducer";
 import { FilmPageReducer } from "./reducers/film-page-reducer"
 import { FavoriteReducer } from "./reducers/favorite-reducer";
 
-
-
-
 const rootReducer = combineReducers({
     popular: PopularReducer,
     search: SearchReducer,

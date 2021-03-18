@@ -1,4 +1,4 @@
-import { API } from "../../components/Api/api";
+import { API } from "../../Api/api";
 import { SET_POPULAR_FILMS, SET_GENRES } from "../../constants";
 
 const setPopularFilms = (popularFilms) => ({type: SET_POPULAR_FILMS, popularFilms})

@@ -1,4 +1,4 @@
-import { API } from "../../components/Api/api"
+import { API } from "../../Api/api"
 import { SET_FILM_PAGE_DATA, SET_RECOMMENDATIONS } from "../../constants"
 
 const setFilmPageData = (filmPageData) => ({type: SET_FILM_PAGE_DATA, filmPageData}) 

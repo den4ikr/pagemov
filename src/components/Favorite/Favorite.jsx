@@ -1,9 +1,10 @@
 import { FilmCard } from "../FilmCard/FilmCard"
+import useStyles from "./FavoriteStyle"
 
 export const Favorite = ({favorite, genres}) => {
-    debugger
+    const style = useStyles()
     return (
-        <div>
+        <div className={style.row} >
             {favorite.length > 0 &&
                 favorite.map ((film) => {
                     return (
