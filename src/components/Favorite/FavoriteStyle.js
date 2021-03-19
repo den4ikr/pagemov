@@ -6,5 +6,9 @@ export default makeStyles ( () => ({
         alignItems: 'center',
         justifyContent: 'space-between',
         flexWrap: "wrap",
+    },
+    epmtyList: {
+        textAlign: "center",
+        paddingTop: 100,        
     }
 }) )

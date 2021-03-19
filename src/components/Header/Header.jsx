@@ -1,19 +1,21 @@
-import { AppBar, Toolbar, Typography } from "@material-ui/core"
-import { NavLink } from "react-router-dom"
+import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import { NavLink } from "react-router-dom";
+import useStyles from "./HeaderStyle";
 
 export const Header = () => {
-    return (
-        <AppBar position="static" >
-            <Toolbar>
-                <Typography variant="h6" >
-                    <NavLink to="/" >
-                        Movie DB
-                    </NavLink>
-                    <NavLink to="/favorite" >
-                        Favorite
-                    </NavLink>
-                </Typography>
-            </Toolbar>
-        </AppBar>
-    )
-}
+  const style = useStyles();
+  return (
+    <AppBar position="static">
+      <Toolbar>
+        <Typography variant="h6">
+          <NavLink className={style.link} to="/">
+            Movie DB
+          </NavLink>
+          <NavLink className={style.link} to="/favorite">
+            Favorite
+          </NavLink>
+        </Typography>
+      </Toolbar>
+    </AppBar>
+  );
+};

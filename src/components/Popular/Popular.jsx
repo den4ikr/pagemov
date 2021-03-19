@@ -25,7 +25,6 @@ export const Popular = (props) => {
                         key={film.id}
                         film={film}
                         genres={props.genres}
-                        isFavorite={props.isFavorite}
                       />
                     </div>
                   );

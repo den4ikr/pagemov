@@ -2,7 +2,7 @@ import React from "react";
 import { Route } from "react-router";
 import "./App.css";
 import { Header } from "./components/Header/Header";
-import FavoriteContainer from "./containers/FavoriteContainer/FavoriteContainer";
+import {FavoriteContainer} from "./containers/FavoriteContainer/FavoriteContainer";
 import { PopularContainer } from "./containers/PopularContainer/PopularContainer";
 import FilmPageContainer from "./containers/FilmPageContainer/FilmPageContainer";
 

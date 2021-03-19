@@ -1,8 +1,8 @@
-import { CardContent, Typography, Card } from "@material-ui/core";
+import { CardContent, Typography, Card, Button } from "@material-ui/core";
 import { FilmCard } from "../FilmCard/FilmCard";
 import useStyles from "./FilmPageStyle";
 
-export const FilmPage = ({ filmPageData, recommendations, genres }) => {
+export const FilmPage = ({ filmPageData, recommendations, genres, addFavoriteFilm, isFavorite }) => {
   const style = useStyles();
   const backdropPath = `https://image.tmdb.org/t/p/original/${filmPageData.backdrop_path}`;
 
@@ -44,6 +44,10 @@ export const FilmPage = ({ filmPageData, recommendations, genres }) => {
                     <Typography>
                       Release date: {filmPageData.release_date}
                     </Typography>
+                    {isFavorite 
+                      ? <Typography color="primary" >Film added to favorite list</Typography>
+                      : <Button variant="contained" color="primary" onClick={addFavoriteFilm} >Add to favorite</Button>
+                    }
                   </div>
                   <div className={style.overview}>
                     <Typography className={style.overview}>
@@ -53,6 +57,11 @@ export const FilmPage = ({ filmPageData, recommendations, genres }) => {
                 </div>
               </CardContent>
             </Card>
+            <div className={style.recTitlte} >
+              <Typography variant="h4" >
+                Recommendation
+              </Typography>
+            </div>
             {recommendations &&
                 <div className={style.recommendationRow} >
                     {recommendations.map ((film) => {

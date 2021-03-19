@@ -44,4 +44,16 @@ export default makeStyles ( () => ({
         justifyContent: 'space-between',
         flexWrap: "wrap",
     },
+    recTitlte: {
+        textAlign: "center",
+        paddingTop: 50,
+    },
+    '@media (max-width: 700px)': {
+        cardRow: {
+            flexDirection: "column"
+        },
+        overview: {
+            paddingTop: 25,
+        },
+      }
 }) )

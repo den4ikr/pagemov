@@ -42,7 +42,6 @@ export const PopularContainer = () => {
       onSearchChange={onSearchChange}
       onSearch={onSearch}
       searchResult={searchResult}
-      isFavorite={isFavorite}
     />
   );
 };
