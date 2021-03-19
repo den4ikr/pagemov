@@ -1,19 +1,23 @@
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { Favorite } from "../../components/Favorite/Favorite"
-import { setFavorite } from "../../redux/actions/favorite-action"
-import { getGenres } from "../../redux/actions/popular-action"
-import { getFavouriteList, isFilmFavourite } from "../../services/localStorage"
-export const FavoriteContainer = () => {
-    const dispatch = useDispatch()
-    //const fav = useSelector(state => state.favorite.favorite)
-    const genres = useSelector(state => state.popular.genres)
-    const favorite = getFavouriteList()
-    dispatch(setFavorite(favorite))
-    useEffect(() => {
-        dispatch(getGenres())
-    },[])
-    return (
-        <Favorite favorite={favorite} genres={genres} />
-    )
-}
+import { useEffect } from "react";
+import { connect, useDispatch, useSelector } from "react-redux";
+import { Favorite } from "../../components/Favorite/Favorite";
+import { getGenres } from "../../redux/actions/popular-action";
+import { getFavorite } from "../../redux/actions/favorite-action";
+
+const FavoriteContainer = (props) => {
+  const dispatch = useDispatch();
+  const genres = useSelector((state) => state.popular.genres);
+  useEffect(() => {
+    dispatch(getGenres());
+    dispatch(getFavorite());
+  }, []);
+  return <Favorite favorite={props.favorite} genres={genres} />;
+};
+
+let mapStateToProps = (state) => {
+  return {
+    favorite: state.favorite.favorite,
+  };
+};
+
+export default connect(mapStateToProps)(FavoriteContainer);

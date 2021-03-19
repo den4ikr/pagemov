@@ -1,10 +1,10 @@
 import { FilmCard } from "../FilmCard/FilmCard";
 import { Paginator } from "../Paginator/Paginator";
+import { Preloader } from "../Preloader/Preloader";
 import { Search } from "../Search/Search";
 import useStyles from "./PopularStyle";
 
 export const Popular = (props) => {
-
   const style = useStyles();
   return (
     <>
@@ -13,33 +13,9 @@ export const Popular = (props) => {
         onSearchChange={props.onSearchChange}
         onSearch={props.onSearch}
       />
-      {/* {props.searchResult.results ? (
-        <div>
-          <div className={style.row}>
-            {props.searchResult.results.map((film) => {
-              return (
-                <div>
-                  <FilmCard key={film.id} film={film} genres={props.genres} />
-                </div>
-              );
-            })}
-          </div>
-          {props.searchResult.results.length > 0 &&
-            <div className={style.paginator}>
-            <Paginator
-              count={props.totalPages}
-              page={props.page}
-              hadleChange={props.hadleChange}
-            />
-          </div>
-          }
-        </div>
-      ) : (
-        <div>NOTHING</div>
-      )} */}
       {props.searchResult.length === 0 ? (
         <div>
-          {props.popularFilms.results && (
+          {props.popularFilms.results ? (
             <div>
               <div className={style.row}>
                 {props.popularFilms.results.map((film) => {
@@ -49,6 +25,7 @@ export const Popular = (props) => {
                         key={film.id}
                         film={film}
                         genres={props.genres}
+                        isFavorite={props.isFavorite}
                       />
                     </div>
                   );
@@ -62,10 +39,12 @@ export const Popular = (props) => {
                 />
               </div>
             </div>
+          ) : (
+            <Preloader />
           )}
         </div>
       ) : (
-        <div className={style.row} >
+        <div className={style.row}>
           {props.searchResult.results.map((film) => {
             return (
               <div>
@@ -74,7 +53,7 @@ export const Popular = (props) => {
             );
           })}
         </div>
-      )} 
+      )}
     </>
   );
 };
