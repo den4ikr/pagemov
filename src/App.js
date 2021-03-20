@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Route path="/filmpage/:movieId" render={() => <FilmPageContainer />} />
       <div className="container">
-        <Route path="/" exact render={() => <PopularContainer />} />
+        <Route path="/moviepatapp" render={() => <PopularContainer />} />
         <Route path="/favorite" render={() => <FavoriteContainer />} />
       </div>
     </>
