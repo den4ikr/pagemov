@@ -1,8 +1,8 @@
 {
-  "homepage": "https://den4ikr.github.io/moviepat",
+  "homepage": "https://den4ikr.github.io/pagemovie",
   "name": "movie-pat",
   "version": "0.1.0",
-  "private": true,
+  "private": true,  
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",

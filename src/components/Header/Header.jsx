@@ -8,7 +8,7 @@ export const Header = () => {
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6">
-          <NavLink className={style.link} to="/moviepat">
+          <NavLink className={style.link} to="/pagemovie">
             Movie DB
           </NavLink>
           <NavLink className={style.link} to="/favorite">
