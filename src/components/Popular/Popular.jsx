@@ -12,20 +12,17 @@ export const Popular = (props) => {
         search={props.search}
         onSearchChange={props.onSearchChange}
         onSearch={props.onSearch}
+        label="Enter a movie"
       />
       {props.searchResult.length === 0 ? (
         <div>
           {props.popularFilms.results ? (
             <div>
               <div className={style.row}>
-                {props.popularFilms.results.map((film) => {
+                {props.popularFilms.results.map((film, index) => {
                   return (
-                    <div>
-                      <FilmCard
-                        key={film.id}
-                        film={film}
-                        genres={props.genres}
-                      />
+                    <div key={film.id}>
+                      <FilmCard film={film} genres={props.genres} />
                     </div>
                   );
                 })}

@@ -9,18 +9,19 @@ import AddCircleIcon from "@material-ui/icons/AddCircle";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { NavLink } from "react-router-dom";
 import useStyles from "./FilmCardStyle";
-import { removeFavorite, getIsFavorite } from "../../redux/actions/favorite-action";
-import { useDispatch } from "react-redux";
 import {
-  addToFavourites,
-  isFilmFavourite,
-} from "../../services/localStorage";
+  removeFavorite,
+  getIsFavorite,
+} from "../../redux/actions/favorite-action";
+import { useDispatch } from "react-redux";
+import { isFilmFavourite } from "../../services/localStorage";
+import { addFavorite } from "../../redux/actions/favorite-action";
 
 export const FilmCard = ({ film, genres }) => {
   const dispatch = useDispatch();
   const style = useStyles();
   const isFavorite = isFilmFavourite(film.id);
-  const filmGenres = []
+  const filmGenres = [];
   if (film.genre_ids) {
     for (let i = 0; i < film.genre_ids.length; i++) {
       for (let j = 0; j < genres.length; j++) {
@@ -29,21 +30,20 @@ export const FilmCard = ({ film, genres }) => {
         }
       }
     }
-  } 
- 
+  }
 
   const addFavoriteFilm = () => {
-    addToFavourites(film);
-    dispatch(getIsFavorite(film.id))
+    dispatch(addFavorite(film));
+    dispatch(getIsFavorite(film.id));
   };
   const deleteFavorite = () => {
-    dispatch(removeFavorite(film.id))
-    dispatch(getIsFavorite(film.id))
+    dispatch(removeFavorite(film.id));
+    dispatch(getIsFavorite(film.id));
   };
 
   return (
     <Card className={style.card}>
-      <NavLink to={`/filmpage/${film.id}`} >
+      <NavLink to={`/filmpage/${film.id}`}>
         <CardMedia
           className={style.poster}
           alt="Poster"
@@ -52,7 +52,7 @@ export const FilmCard = ({ film, genres }) => {
       </NavLink>
       <CardContent>
         <div className={style.subRow}>
-          <Typography className={style.title}>{film.original_title}</Typography>
+          <Typography className={style.title}>{film.title}</Typography>
           {isFavorite ? (
             <IconButton onClick={deleteFavorite}>
               <DeleteIcon />

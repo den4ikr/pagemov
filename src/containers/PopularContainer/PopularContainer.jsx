@@ -7,11 +7,11 @@ import { getResult } from "../../redux/actions/search-action";
 
 export const PopularContainer = () => {
   const dispatch = useDispatch();
+  const [page, setPage] = useState(1);
+  const [search, setSearch] = useState("");
   const popularFilms = useSelector((state) => state.popular.popularFilms);
   const genres = useSelector((state) => state.popular.genres);
   const searchResult = useSelector((state) => state.search.result);
-  const [page, setPage] = useState(1);
-  const [search, setSearch] = useState("");
   const isFavorite = useSelector((state) => state.favorite.isFavorite);
   useEffect(() => {
     dispatch(getPopularFilms(page));
@@ -45,5 +45,3 @@ export const PopularContainer = () => {
     />
   );
 };
-
-//searchResult={Object.keys(searchResult).length ? searchResult : popularFilms}
