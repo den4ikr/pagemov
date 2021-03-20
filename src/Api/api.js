@@ -7,7 +7,7 @@ const instance = axios.create({
 export const API = {
   getPopularFilms(currentPage) {
     return instance.get(
-      `movie/popular/?api_key=59b515f14ca7817fa52949d84c435157&page=${currentPage}`
+      `movie/popular?api_key=59b515f14ca7817fa52949d84c435157&page=${currentPage}`
     );
   },
   getGenres() {
